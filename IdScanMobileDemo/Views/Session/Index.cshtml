@@ -1,0 +1,17 @@
+﻿@model SessionModel
+@{
+    var cameraUrl = @Url.Action("Camera", "Session", new { SessionId = Model.SessionId }, Url.ActionContext.HttpContext.Request.Scheme);
+}
+
+<div class="camera-url-container">
+    <p>To upload your photo, please either scan the barcode or go to:<br /><a href="@cameraUrl">@cameraUrl</a></p>
+    <qrcode content="@cameraUrl" />
+</div>
+
+<div class="id-scan-progress-container">
+    This is where you will get updates of progress on scanning from the camera.
+</div>
+
+<div class="id-scan-results-container">
+    This is where the data from a successfully scanned image will go.
+</div>
